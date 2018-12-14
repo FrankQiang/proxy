@@ -1,0 +1,14 @@
+version: '3'
+services:
+  proxy:
+    volumes:
+     - .:/usr/src/app
+    ports:
+     - "5001:5001"
+    links:
+     - proxy_redis
+    image: "proxy"
+  proxy_redis:
+    ports:
+     - "6379:6379"
+    image: "redis:4.0"
